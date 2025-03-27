@@ -11,7 +11,7 @@ enum State{
 var current_state = State.READY
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	
 	pass # Replace with function body.
 
 
@@ -63,11 +63,4 @@ func _on_tween_done():
 	
 func change_state(next_state):
 	current_state = next_state
-	match current_state:
-		State.READY:
-			print("Changing state to ready")
-		State.READING:
-			print("Changing state to reading")
-		State.FINISHED:
-			print("Changing state to finished")
-	pass
+	

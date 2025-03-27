@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Transition="*res://transition.tscn"
 TextBox="*res://text_box.tscn"
 PlayerText="*res://player_text.tscn"
+Globals="*res://globals.gd"
 
 [editor]
 
