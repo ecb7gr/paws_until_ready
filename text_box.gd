@@ -11,9 +11,7 @@ enum State{
 var current_state = State.READY
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	queue_text("hello")
-	queue_text("goodbye")
-	display_text()
+
 	pass # Replace with function body.
 
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0cn8iv6fu8mm"]
+[gd_scene load_steps=12 format=3 uid="uid://c0cn8iv6fu8mm"]
 
+[ext_resource type="Script" path="res://intro_cut_scene.gd" id="1_6u216"]
 [ext_resource type="Texture2D" uid="uid://dmekp3idv4v1f" path="res://WinterBonnie.png" id="1_k5jjt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b662r"]
@@ -67,6 +68,7 @@ animations = [{
 }]
 
 [node name="IntroCutScene" type="Node"]
+script = ExtResource("1_6u216")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visibility_layer = 3
