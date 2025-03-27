@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var label = $TextboxContainer/MarginContainer/HBoxContainer/Label
 var tween
 var text_queue = []
-
+signal on_display_finished
 enum State{
 	READY, READING, FINISHED
 }
@@ -19,6 +19,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	match current_state:
 		State.READY:
+			if text_queue.is_empty():
+				on_display_finished.emit()
+			
 			if !text_queue.is_empty():
 				display_text()
 		State.READING:
