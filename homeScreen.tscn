@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://p5727ydp25fw"]
+
+[ext_resource type="Texture2D" uid="uid://e4vr8p2e5rfw" path="res://ae035b19-dc08-498b-9568-0e61be78881a.JPG" id="1_vr55n"]
+[ext_resource type="Script" path="res://startButton.gd" id="2_x5qfi"]
+[ext_resource type="Texture2D" uid="uid://bkvsuq54pyqky" path="res://TitleAttempt.png" id="3_gipyf"]
+[ext_resource type="Texture2D" uid="uid://dhxj78ik6cu5x" path="res://blob1.png" id="4_blj02"]
+
+[node name="TextureRect" type="TextureRect"]
+anchors_preset = -1
+anchor_left = -0.004
+anchor_top = -0.006
+anchor_right = -0.004
+anchor_bottom = -0.006
+offset_left = -25.392
+offset_top = -240.112
+offset_right = 1574.61
+offset_bottom = 959.888
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_vr55n")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 992.5
+offset_top = 752.5
+offset_right = 1228.5
+offset_bottom = 821.5
+scale = Vector2(2, 2)
+text = "Leave Your Dog Behind"
+script = ExtResource("2_x5qfi")
+
+[node name="TitleAttempt" type="Sprite2D" parent="."]
+position = Vector2(957.5, 1137.5)
+scale = Vector2(1.81152, 1.70817)
+texture = ExtResource("3_gipyf")
+
+[node name="Blob1" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.760784, 1, 1, 1)
+position = Vector2(361.875, 910)
+scale = Vector2(1.91081, 1.88802)
+texture = ExtResource("4_blj02")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
