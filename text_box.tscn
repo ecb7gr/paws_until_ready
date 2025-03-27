@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://umkr62pnpx6b"]
+
+[ext_resource type="Script" path="res://text_box.gd" id="1_qo6im"]
+[ext_resource type="FontFile" uid="uid://ckvb46xs6haql" path="res://Minecraft.ttf" id="2_ha66t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v62l1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+
+[node name="TextBox" type="CanvasLayer"]
+script = ExtResource("1_qo6im")
+
+[node name="TextboxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -228.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="Panel" type="Panel" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v62l1")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_ha66t")
+theme_override_font_sizes/font_size = 65
+text = "Friend, I know you don't know where you are. I told them you're a good friend, and they said you'd be going somewhere very happy."
+autowrap_mode = 2
+clip_text = true
+
+[node name="Label2" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(-0.06, -5.52)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_ha66t")
+theme_override_font_sizes/font_size = 60
+text = "v"
+horizontal_alignment = 2
+justification_flags = 128
