@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://3plvjikt214s"]
+
+[ext_resource type="Script" path="res://player_text.gd" id="1_7gjic"]
+[ext_resource type="FontFile" uid="uid://ckvb46xs6haql" path="res://Minecraft.ttf" id="2_6ynbx"]
+
+[node name="PlayerText" type="CanvasLayer"]
+script = ExtResource("1_7gjic")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 108.0
+offset_top = 254.0
+offset_right = 1040.0
+offset_bottom = 470.0
+theme_override_fonts/normal_font = ExtResource("2_6ynbx")
+theme_override_font_sizes/normal_font_size = 60
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
