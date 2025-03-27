@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 func _on_pressed() -> void:
 	Transition.transition()
 	await Transition.on_transition_finished
-	get_tree().change_scene_to_file("res://gameStart.tscn")
+	get_tree().change_scene_to_file("res://intro_cut_scene.tscn")
 	pass # Replace with function body.
