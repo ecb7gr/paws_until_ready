@@ -22,6 +22,7 @@ func _ready() -> void:
 	await Transition.on_transition_finished
 	winter.visible = true
 	TextBox.queue_text("Really?")
+	TextBox.queue_text("You want to wait for me?")
 	TextBox.queue_text("Let me talk to them.")
 	TextBox.queue_text("Maybe they can find something else for you.")
 	TextBox.show_textbox()

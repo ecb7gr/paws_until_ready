@@ -4,6 +4,7 @@ extends Node2D
 func _ready() -> void:
 	TextBox.hide()
 	TextBox.queue_text("So...I'm really dead?")
+	TextBox.queue_text("What's going on?")
 	TextBox.queue_text("What is this place?")
 	TextBox.show()
 	load_textbox()
