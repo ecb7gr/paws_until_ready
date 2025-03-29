@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqxsa8hslxhd4"]
+
+[ext_resource type="Texture2D" uid="uid://dank0dc5mok3h" path="res://tileset/board.png" id="1_jt73m"]
+[ext_resource type="Script" path="res://board_real.gd" id="1_pot8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eokvv"]
+size = Vector2(80, 42)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_pot8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jt73m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_eokvv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
