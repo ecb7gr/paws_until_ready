@@ -21,6 +21,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.pressed && not processing):
 		Transition.transition()
 		await Transition.on_transition_finished
-		get_tree().change_scene_to_file("res://intro_cut_scene.tscn")
+		get_tree().change_scene_to_file("res://winter_letter.tscn")
 	pass # Replace with function body.
  # Replace with function body.
