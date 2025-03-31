@@ -3,8 +3,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	TextBox.hide()
-
+	TextBox.show()
+	TextBox.queue_text("A letter? Is this for me?")
+	TextBox.display_text()
 	pass # Replace with function body.
 
 

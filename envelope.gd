@@ -1,5 +1,5 @@
 extends Area2D
-var processing = false
+var processing = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,11 +11,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if processing:
+		await TextBox.on_display_finished
+	processing = false
 	pass
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if (event is InputEventMouseButton && event.pressed):
+	if (event is InputEventMouseButton && event.pressed && not processing):
 		Transition.transition()
 		await Transition.on_transition_finished
 		get_tree().change_scene_to_file("res://intro_cut_scene.tscn")
