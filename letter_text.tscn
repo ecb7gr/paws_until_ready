@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bofjeesk6yjsh"]
+
+[ext_resource type="Script" path="res://letter_text.gd" id="1_7akuq"]
+[ext_resource type="FontFile" uid="uid://ckvb46xs6haql" path="res://Minecraft.ttf" id="1_ps5ik"]
+
+[node name="letter_text" type="CanvasLayer"]
+script = ExtResource("1_7akuq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 216.0
+offset_top = 43.0
+offset_right = 879.0
+offset_bottom = 599.0
+theme_override_colors/default_color = Color(0.0494386, 0.0743503, 0.149754, 1)
+theme_override_fonts/normal_font = ExtResource("1_ps5ik")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "hellloooo"

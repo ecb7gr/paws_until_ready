@@ -78,6 +78,7 @@ position = Vector2(572, 316)
 scale = Vector2(6.6875, 7.65625)
 sprite_frames = SubResource("SpriteFrames_ab42h")
 autoplay = "default"
+frame_progress = 0.960373
 
 [node name="ColorRect" parent="." instance=ExtResource("3_5dqb8")]
 
