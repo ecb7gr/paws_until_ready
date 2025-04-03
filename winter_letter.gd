@@ -24,7 +24,7 @@ func _ready() -> void:
 	TextBox.display_text()
 	await TextBox.on_display_finished
 	print("booyah fucko")
-	#get_tree().change_scene_to_file("res://intro_cut_scene.tscn")
+	get_tree().change_scene_to_file("res://test_game_scene.tscn")
 	pass # Replace with function body.
 
 

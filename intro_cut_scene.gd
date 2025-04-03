@@ -1,6 +1,7 @@
 extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	TextBox.show()
 	TextBox.queue_text("Oh? Is that you?")
 	TextBox.queue_text("You probably don't know\nwhat's going on.")
 	TextBox.queue_text("Try not to be scared. I put in\na good word for you.")

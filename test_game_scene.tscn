@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsccrdik2xw6g"]
+
+[ext_resource type="PackedScene" uid="uid://birgplsretasp" path="res://test_game_base.tscn" id="1_8beo2"]
+[ext_resource type="Script" path="res://second_game_scene.gd" id="1_eojps"]
+[ext_resource type="PackedScene" uid="uid://d1xumg0b4ounb" path="res://ghost.tscn" id="2_idu52"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_eojps")
+
+[node name="TileMap" parent="." instance=ExtResource("1_8beo2")]
+position = Vector2(-1, 10)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_idu52")]
+position = Vector2(388, 402)
+scale = Vector2(1.5, 1.5)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-1.33333, 0)
+zoom = Vector2(4, 4)
