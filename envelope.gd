@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: #CHATGPT HELPED
 	if (event is InputEventMouseButton && event.pressed && not processing):
 		Transition.transition()
 		await Transition.on_transition_finished
