@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends CanvasLayer # https://www.youtube.com/watch?v=QC_mn2tX6n0&t=72s
 @onready var color_rect = $ColorRect
 @onready var anim_player = $AnimationPlayer
 signal on_transition_finished

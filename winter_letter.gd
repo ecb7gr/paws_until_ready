@@ -20,6 +20,9 @@ func _ready() -> void:
 	TextBox.queue_text("Oh, Winter...")
 	TextBox.show()
 	TextBox.display_text()
+	await TextBox.on_display_finished
+	print("booyah fucko")
+	#get_tree().change_scene_to_file("res://intro_cut_scene.tscn")
 	pass # Replace with function body.
 
 

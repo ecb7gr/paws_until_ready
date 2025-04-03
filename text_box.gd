@@ -2,7 +2,9 @@ extends CanvasLayer
 @onready var textbox_container = $TextboxContainer
 @onready var con_symbol = $TextboxContainer/MarginContainer/HBoxContainer/Label2
 @onready var label = $TextboxContainer/MarginContainer/HBoxContainer/Label
-var tween
+
+#https://www.youtube.com/watch?v=QEHOiORnXIk&t=136s
+var tween #CHATGPT 4 used bc this godot version does not have tween and i had to figure that out
 var text_queue = []
 signal on_display_finished
 enum State{

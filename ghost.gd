@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterBody2D #https://forum.godotengine.org/t/smooth-movement-without-gravity/23075/2
 var speed = 100
 var friction = 0.05
 var acceleration = 0.05
