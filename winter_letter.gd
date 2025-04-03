@@ -6,9 +6,11 @@ signal enter_pressed
 func _ready() -> void:
 	TextBox.hide()
 	letter.display_text("Dear friend,\t
-	In case you're wondering, I'm doing okay!\tYour mom is still pretty sad, but I'm\ntaking care of her.
-	 I remind her of you. She likes that, I\nbelieve.\n\nWhile you wait, they said you could still help out the people and animals where you are.\n
-	I think there are some really lonely spirits. You can do a lot to help them.\n\n\n   With love,\n                Winter
+	In case you're wondering, I'm doing well!\nYour mom is still pretty sad, but I think she\n
+	likes having me around. Don't worry--I'll make sure she's okay.\n\n
+	I've heard about some lonely ghosts\nwhere you are. They're not like you, who\nchooses to stick around. They're stuck,\nunable to find peace.
+	While you wait, maybe try and seek some\nout. You can do a lot to help.
+	\n\n   With love,\n                Winter
 	
 	
 	
