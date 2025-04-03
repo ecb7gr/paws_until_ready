@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5kl8krwb1jr0"]
+
+[ext_resource type="Texture2D" uid="uid://ckb13c83ir0h1" path="res://ball_thing.png" id="1_p50rd"]
+[ext_resource type="PackedScene" uid="uid://esp2rcl4ou8n" path="res://memory_shape.tscn" id="2_74xw5"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(539, 307)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p50rd")
+
+[node name="memory_shape" parent="." instance=ExtResource("2_74xw5")]
