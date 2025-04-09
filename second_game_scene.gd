@@ -4,10 +4,14 @@ extends Node2D
 @onready var mem_body = mem.get_child(1) #https://docs.godotengine.org/en/stable/classes/class_node.html#class-node-method-get-child
 @onready var mem_collision = mem.get_child(1).get_child(0)
 @onready var timer = $Timer
-signal imma_try
+@onready var energy = $CharacterBody2D/Camera2D/CanvasLayer
+@onready var lambmemory = $CharacterBody2D/Camera2D/LambMemory
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	lambmemory.get_child(0).hide()
+	lambmemory.get_child(1).hide()
+	energy.hide()
 	mem.hide()
 	TextBox.hide()
 	TextBox.queue_text("What a good dog.")
@@ -44,3 +48,20 @@ func _on_timer_timeout():
 	
 func handle_clicked_ball():
 	print("YOU CLICKED THE BALLLLLLLLL")
+	mem.hide()
+	Transition.transition()
+	await Transition.on_transition_finished
+	lambmemory.get_child(0).show()
+	lambmemory.get_child(1).show()
+	lambmemory.post_chop.connect(transition_back)
+	
+func transition_back():
+	lambmemory.get_child(0).hide()
+	lambmemory.get_child(1).hide()
+	energy.show()
+	TextBox.queue_text("Wow, if I still had tear ducts, I would have shed a tear.")
+	TextBox.queue_text("But I feel...more energized?")
+	TextBox.queue_text("Maybe there are more of those things....")
+	TextBox.show()
+	load_textbox()
+	

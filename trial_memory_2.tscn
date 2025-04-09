@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgpbdyb6weu20"]
+
+[ext_resource type="Script" path="res://trial_memory_2.gd" id="1_632iu"]
+[ext_resource type="Texture2D" uid="uid://t6rt2tq3xxb6" path="res://Lambchop-1.png.png" id="2_s7cqs"]
+
+[node name="Node" type="Node2D"]
+script = ExtResource("1_632iu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1175.0
+offset_bottom = 668.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(563, 269)
+scale = Vector2(8.90625, 8.15625)
+texture = ExtResource("2_s7cqs")

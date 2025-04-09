@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cytbca2j8oiuk"]
+
+[ext_resource type="Script" path="res://trial_memory.gd" id="1_br5rv"]
+[ext_resource type="PackedScene" uid="uid://bgpbdyb6weu20" path="res://trial_memory_2.tscn" id="2_eryg0"]
+
+[node name="trial_memory" type="CanvasLayer"]
+script = ExtResource("1_br5rv")
+
+[node name="Node" parent="." instance=ExtResource("2_eryg0")]

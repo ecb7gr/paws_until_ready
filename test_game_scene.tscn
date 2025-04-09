@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsccrdik2xw6g"]
+[gd_scene load_steps=10 format=3 uid="uid://bsccrdik2xw6g"]
 
 [ext_resource type="PackedScene" uid="uid://birgplsretasp" path="res://test_game_base.tscn" id="1_8beo2"]
 [ext_resource type="Script" path="res://second_game_scene.gd" id="1_eojps"]
 [ext_resource type="PackedScene" uid="uid://d1xumg0b4ounb" path="res://ghost.tscn" id="2_idu52"]
+[ext_resource type="PackedScene" uid="uid://b6o05k2nltc0o" path="res://energy.tscn" id="4_cgumm"]
 [ext_resource type="PackedScene" uid="uid://b5kl8krwb1jr0" path="res://memory_attempt1.tscn" id="4_o05bu"]
+[ext_resource type="PackedScene" uid="uid://bgpbdyb6weu20" path="res://trial_memory_2.tscn" id="6_g3u1m"]
 
 [sub_resource type="Animation" id="Animation_ejbjx"]
 length = 0.001
@@ -56,6 +58,12 @@ scale = Vector2(1.5, 1.5)
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-1.33333, 0)
 zoom = Vector2(4, 4)
+
+[node name="CanvasLayer" parent="CharacterBody2D/Camera2D" instance=ExtResource("4_cgumm")]
+
+[node name="LambMemory" parent="CharacterBody2D/Camera2D" instance=ExtResource("6_g3u1m")]
+position = Vector2(-98.57, -56.76)
+scale = Vector2(0.171, 0.171)
 
 [node name="little_moving_thing" parent="." instance=ExtResource("4_o05bu")]
 position = Vector2(184, 349)
