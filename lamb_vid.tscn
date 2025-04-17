@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bllil3jimd230"]
+
+[ext_resource type="VideoStream" path="res://59745400792__7AC94253-5F49-4129-A110-BA720D1E74EB 3.ogv" id="1_ertxo"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer"]
+anchors_preset = -1
+anchor_left = 0.472
+anchor_top = 1.481
+anchor_right = 0.472
+anchor_bottom = 1.481
+offset_left = -543.744
+offset_top = -1717.69
+offset_right = 544.256
+offset_bottom = 202.312
+stream = ExtResource("1_ertxo")
+autoplay = true
+loop = true

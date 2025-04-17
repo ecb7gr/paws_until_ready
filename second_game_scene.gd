@@ -49,19 +49,21 @@ func _on_timer_timeout():
 func handle_clicked_ball():
 	print("YOU CLICKED THE BALLLLLLLLL")
 	mem.hide()
-	Transition.transition()
-	await Transition.on_transition_finished
+	#Transition.transition()
+	#await Transition.on_transition_finished
 	lambmemory.get_child(0).show()
 	lambmemory.get_child(1).show()
+	print("hello")
 	lambmemory.post_chop.connect(transition_back)
 	
 func transition_back():
 	lambmemory.get_child(0).hide()
 	lambmemory.get_child(1).hide()
+	energy.increment_energy_value()
 	energy.show()
 	TextBox.queue_text("Wow, if I still had tear ducts, I would have shed a tear.")
 	TextBox.queue_text("But I feel...more energized?")
-	TextBox.queue_text("Maybe there are more of those things....")
+	TextBox.queue_text("Maybe there are more of those things around here...")
 	TextBox.show()
 	load_textbox()
 	

@@ -8,8 +8,9 @@ func _ready() -> void:
 	letter.display_text("Dear friend,\t
 	In case you're wondering, I'm doing well!\nYour mom is still pretty sad, but I think she\n
 	likes having me around. Don't worry--I'll make sure she's okay.\n\n
-	I've heard about some lonely ghosts\nwhere you are. They're not like you, who\nchooses to stick around. They're stuck,\nunable to find peace.
-	While you wait, maybe try and seek some\nout. You can do a lot to help.
+	I've heard about some lonely ghosts\nwhere you are.\n
+	While you wait, maybe try and seek some\n
+	out. I think you can do a lot to help.
 	\n\n   With love,\n                Winter
 	
 	

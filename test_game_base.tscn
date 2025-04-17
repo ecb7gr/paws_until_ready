@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://birgplsretasp"]
+[gd_scene load_steps=7 format=3 uid="uid://birgplsretasp"]
 
 [ext_resource type="TileSet" uid="uid://c8ymuvbon6kjk" path="res://tileset/tileset_tileset.tres" id="1_58b4w"]
 [ext_resource type="Texture2D" uid="uid://dank0dc5mok3h" path="res://tileset/board.png" id="2_0be5m"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d2yta"]
+distance = -328.311
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xqhw4"]
+normal = Vector2(1, 0)
+distance = 114.155
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8tnlc"]
+normal = Vector2(0, 1)
+distance = 54.1418
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qp6yo"]
+distance = -643.369
 
 [node name="TileMap" type="TileMap"]
 z_index = -1
@@ -20,3 +34,19 @@ layer_0/tile_data = PackedInt32Array(1245205, 196608, 19, 1310741, 196608, 20, 1
 position = Vector2(372.706, 241.85)
 scale = Vector2(1.51199, 1.20925)
 texture = ExtResource("2_0be5m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.604624)
+shape = SubResource("WorldBoundaryShape2D_d2yta")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_xqhw4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_8tnlc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+rotation = -1.57999
+shape = SubResource("WorldBoundaryShape2D_qp6yo")
