@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dopvmnb0t6dws"]
+
+[ext_resource type="Texture2D" uid="uid://ckb13c83ir0h1" path="res://ball_thing.png" id="1_n6xfp"]
+[ext_resource type="PackedScene" uid="uid://esp2rcl4ou8n" path="res://memory_shape.tscn" id="2_drdrq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.90758, 0.451639, 0.851685, 1)
+self_modulate = Color(0.421063, 0.768708, 0.906973, 1)
+texture = ExtResource("1_n6xfp")
+
+[node name="memory_shape" parent="Sprite2D" instance=ExtResource("2_drdrq")]
+position = Vector2(2.26335, -2.40353)

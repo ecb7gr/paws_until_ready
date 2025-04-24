@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://birm5ej6grse3"]
+
+[ext_resource type="FontFile" uid="uid://ckvb46xs6haql" path="res://Minecraft.ttf" id="1_7488x"]
+[ext_resource type="Script" path="res://third_memory_scene.gd" id="1_wmxt3"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wmxt3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1164.0
+offset_bottom = 672.0
+color = Color(0.31802, 0.31802, 0.31802, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 37.0
+offset_right = 1109.0
+offset_bottom = 625.0
+color = Color(0.273873, 0.273873, 0.273873, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 77.0
+offset_top = 74.0
+offset_right = 1065.0
+offset_bottom = 593.0
+color = Color(0.868985, 0.868985, 0.868985, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 110.0
+offset_top = 111.0
+offset_right = 1026.0
+offset_bottom = 553.0
+color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 16.0
+offset_right = 752.0
+offset_bottom = 438.0
+theme_override_fonts/normal_font = ExtResource("1_7488x")
+theme_override_font_sizes/normal_font_size = 28
+text = "Man neglects its return to
+The dog’s sense of things, which
+Does not behold Winter through
+The language of snow, or blank
+Verse, or version, or veneration
+
+The lamb is not a creature which
+Innocence or majesty imagined.
+Dogs do not know the puppet;
+Rather, we know its softness,
+Its texture: plush, woolen, and
+For which wooden words fail,
+For which friends will overlook,
+As all games interpreted
+Cannot be played"

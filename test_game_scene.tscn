@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsccrdik2xw6g"]
+[gd_scene load_steps=20 format=3 uid="uid://bsccrdik2xw6g"]
 
 [ext_resource type="PackedScene" uid="uid://birgplsretasp" path="res://test_game_base.tscn" id="1_8beo2"]
 [ext_resource type="Script" path="res://second_game_scene.gd" id="1_eojps"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b6o05k2nltc0o" path="res://energy.tscn" id="4_cgumm"]
 [ext_resource type="PackedScene" uid="uid://b5kl8krwb1jr0" path="res://memory_attempt1.tscn" id="4_o05bu"]
 [ext_resource type="PackedScene" uid="uid://bgpbdyb6weu20" path="res://trial_memory_2.tscn" id="6_g3u1m"]
+[ext_resource type="PackedScene" uid="uid://birm5ej6grse3" path="res://Third_Memory_Scene.tscn" id="7_g852p"]
+[ext_resource type="PackedScene" uid="uid://dd0tetf4noa3k" path="res://memory_ball_try_2.tscn" id="7_ptvrj"]
+[ext_resource type="PackedScene" uid="uid://13j2edtj21cq" path="res://Second_Memory_Scene.tscn" id="8_0jfr7"]
+[ext_resource type="PackedScene" uid="uid://k17arnhthycr" path="res://memory_ball3.tscn" id="10_kjpug"]
 
 [sub_resource type="Animation" id="Animation_ejbjx"]
 length = 0.001
@@ -45,6 +49,82 @@ _data = {
 "move_the_damn_ball": SubResource("Animation_shdmh")
 }
 
+[sub_resource type="Animation" id="Animation_03l3t"]
+resource_name = "new_animation"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 6.44406, 10, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(217, 137), Vector2(902, 294), Vector2(492, 117), Vector2(567, 526), Vector2(502, 283)]
+}
+
+[sub_resource type="Animation" id="Animation_6dcju"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(217, 137)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2qei"]
+_data = {
+"RESET": SubResource("Animation_6dcju"),
+"new_animation": SubResource("Animation_03l3t")
+}
+
+[sub_resource type="Animation" id="Animation_5f2ra"]
+resource_name = "new_animation"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.06667, 2.03333, 3.16667, 4.03333, 4.93333, 6, 7.06667, 8, 8.93333, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(51, 545), Vector2(248, 550), Vector2(152, 231), Vector2(389, 273), Vector2(307, 594), Vector2(790, 233), Vector2(634, 553), Vector2(461, 254), Vector2(808, 239), Vector2(898, 496), Vector2(801, 543)]
+}
+
+[sub_resource type="Animation" id="Animation_gxf1l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(51, 545)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqbgm"]
+_data = {
+"RESET": SubResource("Animation_gxf1l"),
+"new_animation": SubResource("Animation_5f2ra")
+}
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_eojps")
 
@@ -65,6 +145,14 @@ zoom = Vector2(4, 4)
 position = Vector2(-98.57, -56.76)
 scale = Vector2(0.171, 0.171)
 
+[node name="Node2D2" parent="CharacterBody2D/Camera2D" instance=ExtResource("8_0jfr7")]
+position = Vector2(-105.21, -59.28)
+scale = Vector2(0.2, 0.2)
+
+[node name="Node2D" parent="CharacterBody2D/Camera2D" instance=ExtResource("7_g852p")]
+position = Vector2(-122.597, -73.173)
+scale = Vector2(0.22, 0.22)
+
 [node name="little_moving_thing" parent="." instance=ExtResource("4_o05bu")]
 position = Vector2(184, 349)
 
@@ -77,5 +165,26 @@ autoplay = "move_the_damn_ball"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
+
+[node name="Node2D" parent="." instance=ExtResource("7_ptvrj")]
+modulate = Color(0, 0.930629, 0.986051, 1)
+self_modulate = Color(0.490249, 0.890225, 1, 1)
+position = Vector2(217, 137)
+scale = Vector2(1.4, 1.4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+libraries = {
+"": SubResource("AnimationLibrary_y2qei")
+}
+autoplay = "new_animation"
+
+[node name="Node2D2" parent="." instance=ExtResource("10_kjpug")]
+position = Vector2(51, 545)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_qqbgm")
+}
+autoplay = "new_animation"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

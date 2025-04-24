@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://13j2edtj21cq"]
+
+[ext_resource type="Script" path="res://Second_Memory.gd" id="1_3cv1a"]
+[ext_resource type="FontFile" uid="uid://ckvb46xs6haql" path="res://Minecraft.ttf" id="2_iivbs"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3cv1a")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1224.0
+offset_bottom = 716.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 81.0
+offset_right = 1001.0
+offset_bottom = 611.0
+theme_override_fonts/normal_font = ExtResource("2_iivbs")
+theme_override_font_sizes/normal_font_size = 50
+text = "You feel engulfed by a familial warmth. There's a friendly face nearby, but a small black box obscures it from your vision. 
+
+You thrust yourself onto something soft and white. It squeaks, and there's  laughter, something. Call and response."

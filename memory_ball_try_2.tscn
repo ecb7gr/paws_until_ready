@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd0tetf4noa3k"]
+
+[ext_resource type="Script" path="res://memory_ball2.gd" id="1_6rthf"]
+[ext_resource type="Texture2D" uid="uid://ckb13c83ir0h1" path="res://ball_thing.png" id="2_utndx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofdra"]
+
+[node name="Node2D" type="Area2D"]
+script = ExtResource("1_6rthf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.664169, 0.802304, 0.909227, 1)
+self_modulate = Color(0.627793, 0.604062, 0.985402, 1)
+texture = ExtResource("2_utndx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_ofdra")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

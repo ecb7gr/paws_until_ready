@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://k17arnhthycr"]
+
+[ext_resource type="Script" path="res://memory3_ball.gd" id="1_3vmtu"]
+[ext_resource type="Texture2D" uid="uid://beb6i3voetjr" path="res://Memory2.png" id="2_fmbm0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v5ka4"]
+
+[node name="Node2D" type="Area2D"]
+script = ExtResource("1_3vmtu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fmbm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_v5ka4")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
