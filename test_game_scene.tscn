@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bsccrdik2xw6g"]
+[gd_scene load_steps=30 format=3 uid="uid://bsccrdik2xw6g"]
 
 [ext_resource type="PackedScene" uid="uid://birgplsretasp" path="res://test_game_base.tscn" id="1_8beo2"]
 [ext_resource type="Script" path="res://second_game_scene.gd" id="1_eojps"]
@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dd0tetf4noa3k" path="res://memory_ball_try_2.tscn" id="7_ptvrj"]
 [ext_resource type="PackedScene" uid="uid://13j2edtj21cq" path="res://Second_Memory_Scene.tscn" id="8_0jfr7"]
 [ext_resource type="PackedScene" uid="uid://bjngyhji7is1a" path="res://memory_4_scene.tscn" id="8_u12rr"]
+[ext_resource type="PackedScene" uid="uid://bllil3jimd230" path="res://lamb_vid.tscn" id="9_qnoiq"]
 [ext_resource type="PackedScene" uid="uid://k17arnhthycr" path="res://memory_ball3.tscn" id="10_kjpug"]
 [ext_resource type="PackedScene" uid="uid://cgebbyjsom2d8" path="res://memory4.tscn" id="12_4svro"]
+[ext_resource type="PackedScene" uid="uid://3krkwohv0vn" path="res://memory5_ball.tscn" id="14_skwef"]
 
 [sub_resource type="Animation" id="Animation_ejbjx"]
 length = 0.001
@@ -127,6 +129,21 @@ _data = {
 "new_animation": SubResource("Animation_5f2ra")
 }
 
+[sub_resource type="Animation" id="Animation_ac8y8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(806, 61)]
+}
+
 [sub_resource type="Animation" id="Animation_n82xk"]
 resource_name = "new_animation"
 length = 12.0
@@ -144,7 +161,30 @@ tracks/0/keys = {
 "values": [Vector2(806, 61), Vector2(951, 559), Vector2(211, 186), Vector2(476, 552), Vector2(50, 425), Vector2(884, 292)]
 }
 
-[sub_resource type="Animation" id="Animation_ac8y8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tvi7a"]
+_data = {
+"RESET": SubResource("Animation_ac8y8"),
+"new_animation": SubResource("Animation_n82xk")
+}
+
+[sub_resource type="Animation" id="Animation_e3etg"]
+resource_name = "new_animation"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2.03333, 3.03333, 4.03333, 5.03333, 6, 7.03333, 8, 9.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(90, 353), Vector2(190, 220), Vector2(294, 188), Vector2(528, 184), Vector2(764, 220), Vector2(841, 321), Vector2(849, 425), Vector2(799, 493), Vector2(628, 455), Vector2(417, 548)]
+}
+
+[sub_resource type="Animation" id="Animation_tersn"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -156,13 +196,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(806, 61)]
+"values": [Vector2(90, 353)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tvi7a"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s6uoy"]
 _data = {
-"RESET": SubResource("Animation_ac8y8"),
-"new_animation": SubResource("Animation_n82xk")
+"RESET": SubResource("Animation_tersn"),
+"new_animation": SubResource("Animation_e3etg")
 }
 
 [node name="Node2D" type="Node2D"]
@@ -196,6 +236,8 @@ scale = Vector2(0.22, 0.22)
 [node name="Node2D3" parent="CharacterBody2D/Camera2D" instance=ExtResource("8_u12rr")]
 position = Vector2(-95.38, -58.033)
 scale = Vector2(0.16, 0.16)
+
+[node name="VideoStreamPlayer" parent="CharacterBody2D/Camera2D" instance=ExtResource("9_qnoiq")]
 
 [node name="little_moving_thing" parent="." instance=ExtResource("4_o05bu")]
 position = Vector2(184, 349)
@@ -237,6 +279,15 @@ position = Vector2(806, 61)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
 libraries = {
 "": SubResource("AnimationLibrary_tvi7a")
+}
+autoplay = "new_animation"
+
+[node name="Area2D2" parent="." instance=ExtResource("14_skwef")]
+position = Vector2(90, 353)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_s6uoy")
 }
 autoplay = "new_animation"
 

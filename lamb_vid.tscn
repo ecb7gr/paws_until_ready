@@ -1,17 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bllil3jimd230"]
+[gd_scene load_steps=3 format=3 uid="uid://bllil3jimd230"]
 
 [ext_resource type="VideoStream" path="res://59745400792__7AC94253-5F49-4129-A110-BA720D1E74EB 3.ogv" id="1_ertxo"]
+[ext_resource type="Script" path="res://lamb_vid.gd" id="2_xijk3"]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer"]
 anchors_preset = -1
-anchor_left = 0.472
-anchor_top = 1.481
-anchor_right = 0.472
-anchor_bottom = 1.481
-offset_left = -543.744
-offset_top = -1717.69
-offset_right = 544.256
-offset_bottom = 202.312
+anchor_left = 0.481
+anchor_top = 0.526
+anchor_right = 0.481
+anchor_bottom = 0.526
+offset_left = -218.112
+offset_top = -383.848
+offset_right = 869.888
+offset_bottom = 1536.15
+scale = Vector2(0.4, 0.4)
 stream = ExtResource("1_ertxo")
 autoplay = true
 loop = true
+script = ExtResource("2_xijk3")
