@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgebbyjsom2d8"]
+
+[ext_resource type="Script" path="res://memory4.gd" id="1_bvltt"]
+[ext_resource type="Texture2D" uid="uid://yec16q0sbbro" path="res://Memory3.png" id="2_c66fi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_127xl"]
+radius = 15.0
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_bvltt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_c66fi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_127xl")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

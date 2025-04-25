@@ -19,6 +19,6 @@ offset_right = 1001.0
 offset_bottom = 611.0
 theme_override_fonts/normal_font = ExtResource("2_iivbs")
 theme_override_font_sizes/normal_font_size = 50
-text = "You feel engulfed by a familial warmth. There's a friendly face nearby, but a small black box obscures it from your vision. 
+text = "You are engulfed by a familial warmth. There's a friendly face nearby, but a small black box obscures it from your vision. 
 
-You thrust yourself onto something soft and white. It squeaks, and there's  laughter, something. Call and response."
+You thrust yourself onto something soft and white. It squeaks, and there's  laughter, a call and response."
