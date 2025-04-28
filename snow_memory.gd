@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_text_completion_accept") && triggered == TRIGGERED.NO && is_visible_in_tree():
 		triggered = TRIGGERED.YES
-		TextBox.queue_text("\"One must have a mind of Winter...\"")
+		TextBox.queue_text("One must have a mind of Winter...")
 		await TextBox.on_display_finished
 		Transition.transition()
 		await Transition.on_transition_finished

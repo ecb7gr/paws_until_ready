@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bsccrdik2xw6g"]
+[gd_scene load_steps=33 format=3 uid="uid://bsccrdik2xw6g"]
 
 [ext_resource type="PackedScene" uid="uid://birgplsretasp" path="res://test_game_base.tscn" id="1_8beo2"]
 [ext_resource type="Script" path="res://second_game_scene.gd" id="1_eojps"]
@@ -14,6 +14,44 @@
 [ext_resource type="PackedScene" uid="uid://k17arnhthycr" path="res://memory_ball3.tscn" id="10_kjpug"]
 [ext_resource type="PackedScene" uid="uid://cgebbyjsom2d8" path="res://memory4.tscn" id="12_4svro"]
 [ext_resource type="PackedScene" uid="uid://3krkwohv0vn" path="res://memory5_ball.tscn" id="14_skwef"]
+
+[sub_resource type="Animation" id="Animation_jn2r3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(388, 402)]
+}
+
+[sub_resource type="Animation" id="Animation_fgl37"]
+resource_name = "new_animation"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.8, 4.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(388, 402), Vector2(450, 350), Vector2(400, 300), Vector2(550, 450)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t0i8s"]
+_data = {
+"RESET": SubResource("Animation_jn2r3"),
+"new_animation": SubResource("Animation_fgl37")
+}
 
 [sub_resource type="Animation" id="Animation_ejbjx"]
 length = 0.001
@@ -167,6 +205,21 @@ _data = {
 "new_animation": SubResource("Animation_n82xk")
 }
 
+[sub_resource type="Animation" id="Animation_tersn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(90, 353)]
+}
+
 [sub_resource type="Animation" id="Animation_e3etg"]
 resource_name = "new_animation"
 length = 12.0
@@ -182,21 +235,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(90, 353), Vector2(190, 220), Vector2(294, 188), Vector2(528, 184), Vector2(764, 220), Vector2(841, 321), Vector2(849, 425), Vector2(799, 493), Vector2(628, 455), Vector2(417, 548)]
-}
-
-[sub_resource type="Animation" id="Animation_tersn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(90, 353)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s6uoy"]
@@ -238,6 +276,16 @@ position = Vector2(-95.38, -58.033)
 scale = Vector2(0.16, 0.16)
 
 [node name="VideoStreamPlayer" parent="CharacterBody2D/Camera2D" instance=ExtResource("9_qnoiq")]
+offset_left = -223.333
+offset_top = -387.333
+offset_right = 864.667
+offset_bottom = 1532.66
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_t0i8s")
+}
+autoplay = "new_animation"
 
 [node name="little_moving_thing" parent="." instance=ExtResource("4_o05bu")]
 position = Vector2(184, 349)
@@ -266,6 +314,7 @@ autoplay = "new_animation"
 
 [node name="Node2D2" parent="." instance=ExtResource("10_kjpug")]
 position = Vector2(51, 545)
+scale = Vector2(1.8, 1.8)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D2"]
 libraries = {

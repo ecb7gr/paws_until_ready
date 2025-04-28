@@ -48,13 +48,15 @@ func hide_textbox():
 func show_textbox():
 	con_symbol.text = ""
 	textbox_container.show()
-	
-	
+func show_queue():
+	print(text_queue)	
 func display_text():
 	label.text = text_queue.pop_front()
 	change_state(State.READING)
 	show_textbox()
 	label.visible_characters = 0  # Start hidden
+	if tween:
+		tween.kill()
 	tween = create_tween()
 	tween.tween_property(label, "visible_characters", len(label.text), len(label.text) * 0.05)
 	tween.finished.connect(_on_tween_done)
@@ -65,4 +67,3 @@ func _on_tween_done():
 	
 func change_state(next_state):
 	current_state = next_state
-	

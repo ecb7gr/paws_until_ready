@@ -15,6 +15,7 @@ offset_right = 869.888
 offset_bottom = 1536.15
 scale = Vector2(0.4, 0.4)
 stream = ExtResource("1_ertxo")
+volume_db = -80.0
 autoplay = true
 loop = true
 script = ExtResource("2_xijk3")

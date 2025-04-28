@@ -18,8 +18,11 @@ extends Node2D
 @onready var imagememory = $CharacterBody2D/Camera2D/Node2D3
 @onready var videomemory = $CharacterBody2D/Camera2D/VideoStreamPlayer
 @onready var memory5 = $Area2D2
+@onready var player_anim = $CharacterBody2D/AnimationPlayer
+signal start_cut
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player_anim.active = false
 	lambmemory.get_child(0).hide()
 	lambmemory.get_child(1).hide()
 	energy.hide()
@@ -48,6 +51,16 @@ func _ready() -> void:
 	memory3.clicked_ball3.connect(handle_clicked_ball_3)
 	memory4.clicked_ball4.connect(handle_clicked_ball4)
 	memory5.clicked_ball5.connect(handle_clicked_ball5)
+	await start_cut
+	ghost.set_inactive()
+	TextBox.queue_text("winter?")
+	TextBox.queue_text("WINTER???")
+	TextBox.queue_text("WINTER!!!")
+	TextBox.show()
+	load_textbox()
+	Transition.transition()
+	await Transition.on_transition_finished
+	get_tree().change_scene_to_file("res://cut_scene2.tscn")
 	pass # Replace with function body.
 	
 
@@ -128,7 +141,7 @@ func transition_back():
 func on_text_pressed():
 	textmemory.hide()
 	energy.show()
-	TextBox.queue_text("It's like being thrusted into another universe!")
+	TextBox.queue_text("It's like stepping into another universe!")
 	TextBox.queue_text("Gah, this is starting to make my head hurt")
 	TextBox.show()
 	load_textbox()
@@ -137,7 +150,6 @@ func on_poem_pressed():
 	poemmemory.hide()
 	energy.show()
 	TextBox.queue_text("A poem?????")
-	TextBox.queue_text("I used to read Wallace Stevens before bed")
 	TextBox.queue_text("Could this be my subconcious? My memories?")
 	TextBox.show()
 	load_textbox()
@@ -159,3 +171,4 @@ func on_video_pressed():
 	TextBox.queue_text("Is she here??????")
 	TextBox.show()
 	load_textbox()
+	start_cut.emit()
