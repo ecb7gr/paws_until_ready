@@ -8,7 +8,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ghost.set_inactive()
-	cut_cam.make_current()
+	cut_cam.make_current() #CHATGPT4 helped me find this method
 	energy.increment_energy_value()
 	energy.increment_energy_value()
 	energy.increment_energy_value()
@@ -20,10 +20,10 @@ func _ready() -> void:
 	await TextBox.on_display_finished
 	anim.play("new_animation")
 	await anim.animation_finished
-	TextBox.queue_text("But")
+	TextBox.queue_text("But...")
 	TextBox.queue_text("Uh,")
 	TextBox.queue_text("It's a dog?")
-	TextBox.queue_text("I guess I better go say hi.")
+	TextBox.queue_text("Well, I guess I better go say hi.")
 	TextBox.show()
 	TextBox.display_text()
 	camera.make_current()
