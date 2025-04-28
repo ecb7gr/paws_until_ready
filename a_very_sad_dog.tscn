@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c27q7jncka35r"]
+[gd_scene load_steps=12 format=3 uid="uid://c27q7jncka35r"]
 
+[ext_resource type="Script" path="res://a_very_sad_dog.gd" id="1_3xk15"]
 [ext_resource type="Texture2D" uid="uid://cr4wug06fbwr7" path="res://sad_lil_dog.png" id="1_kk2y8"]
+[ext_resource type="Texture2D" uid="uid://d2bsloioeuo5j" path="res://empty_bubble.png" id="3_cfxla"]
+[ext_resource type="Texture2D" uid="uid://cdefabos2kfxs" path="res://New Piskel (1).png" id="4_deqja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kfjqs"]
 atlas = ExtResource("1_kk2y8")
@@ -31,9 +34,44 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_73783"]
+atlas = ExtResource("4_deqja")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thqdu"]
+atlas = ExtResource("4_deqja")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqklr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73783")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thqdu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_3xk15")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ylxor")
 frame = 1
 frame_progress = 0.251157
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(-16, -4)
+scale = Vector2(0.232454, 0.308373)
+texture = ExtResource("3_cfxla")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/Sprite2D"]
+position = Vector2(-47.3212, -9.72848)
+scale = Vector2(3.59201, 2.32409)
+sprite_frames = SubResource("SpriteFrames_hqklr")
+autoplay = "default"
+frame_progress = 0.142269

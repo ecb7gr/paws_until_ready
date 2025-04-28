@@ -8,6 +8,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ghost.set_inactive()
+	sad_dog.hide_bub()
 	cut_cam.make_current() #CHATGPT4 helped me find this method
 	energy.increment_energy_value()
 	energy.increment_energy_value()
@@ -28,6 +29,7 @@ func _ready() -> void:
 	TextBox.display_text()
 	camera.make_current()
 	ghost.set_active()
+	sad_dog.show_bub()
 	pass # Replace with function body.
 
 
