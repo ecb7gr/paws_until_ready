@@ -171,4 +171,5 @@ func on_video_pressed():
 	TextBox.queue_text("Is she here??????")
 	TextBox.show()
 	load_textbox()
+	await TextBox.on_display_finished
 	start_cut.emit()

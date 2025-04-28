@@ -34,8 +34,8 @@ func _ready() -> void:
 	TextBox.display_text()
 	await TextBox.on_display_finished
 	
-	timer.start()
-	await timer.timeout
+	timer2.start()
+	await timer2.timeout
 	TextBox.show_queue()
 	speech.visible = true
 	TextBox.hide()

@@ -61,7 +61,7 @@ func display_text():
 	tween.tween_property(label, "visible_characters", len(label.text), len(label.text) * 0.05)
 	tween.finished.connect(_on_tween_done)
 	
-func _on_tween_done():
+func _on_tween_done() -> void:
 	con_symbol.text = "v"
 	change_state(State.FINISHED)
 	
