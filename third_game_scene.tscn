@@ -6,6 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://b6o05k2nltc0o" path="res://energy.tscn" id="3_yioic"]
 [ext_resource type="PackedScene" uid="uid://c27q7jncka35r" path="res://a_very_sad_dog.tscn" id="5_dbbcj"]
 
+[sub_resource type="Animation" id="Animation_4482t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(290, 349)]
+}
+
 [sub_resource type="Animation" id="Animation_u1ocn"]
 resource_name = "new_animation"
 length = 5.0
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(290, 349), Vector2(781, 473), Vector2(781, 473), Vector2(292, 350)]
-}
-
-[sub_resource type="Animation" id="Animation_4482t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(290, 349)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r1cwv"]
@@ -52,6 +52,8 @@ position = Vector2(1, 12)
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_2mjnf")]
 position = Vector2(292, 350)
 scale = Vector2(1.5, 1.5)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(4, 4)
@@ -70,3 +72,10 @@ libraries = {
 [node name="Node2D" parent="." instance=ExtResource("5_dbbcj")]
 position = Vector2(845, 496)
 scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="close_enough_to_dog" from="Node2D" to="." method="_on_node_2d_close_enough_to_dog"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c27q7jncka35r"]
+[gd_scene load_steps=14 format=3 uid="uid://c27q7jncka35r"]
 
 [ext_resource type="Script" path="res://a_very_sad_dog.gd" id="1_3xk15"]
 [ext_resource type="Texture2D" uid="uid://cr4wug06fbwr7" path="res://sad_lil_dog.png" id="1_kk2y8"]
 [ext_resource type="Texture2D" uid="uid://d2bsloioeuo5j" path="res://empty_bubble.png" id="3_cfxla"]
 [ext_resource type="Texture2D" uid="uid://cdefabos2kfxs" path="res://New Piskel (1).png" id="4_deqja"]
+[ext_resource type="Texture2D" uid="uid://bi70l0r0gq814" path="res://New Piskel-1.png (1).png" id="5_b77my"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kfjqs"]
 atlas = ExtResource("1_kk2y8")
@@ -56,7 +57,11 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b0cvy"]
+radius = 29.0102
+height = 98.2955
+
+[node name="Node2D" type="Area2D"]
 script = ExtResource("1_3xk15")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -65,13 +70,27 @@ frame = 1
 frame_progress = 0.251157
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
-position = Vector2(-16, -4)
-scale = Vector2(0.232454, 0.308373)
+position = Vector2(-14, -7)
+scale = Vector2(0.409977, 0.529186)
 texture = ExtResource("3_cfxla")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/Sprite2D"]
-position = Vector2(-47.3212, -9.72848)
+position = Vector2(-45.8517, -8.97829)
 scale = Vector2(3.59201, 2.32409)
 sprite_frames = SubResource("SpriteFrames_hqklr")
 autoplay = "default"
-frame_progress = 0.142269
+frame_progress = 0.0854421
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D/Sprite2D"]
+position = Vector2(-41.4657, -11.3382)
+scale = Vector2(2.55804, 1.74011)
+texture = ExtResource("5_b77my")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 2)
+rotation = -0.0565497
+scale = Vector2(2.42413, 1)
+shape = SubResource("CapsuleShape2D_b0cvy")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
