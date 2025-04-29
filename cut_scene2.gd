@@ -6,6 +6,8 @@ extends Node2D
 @onready var timer2 = $Timer2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	timer.start()
+	await timer.timeout
 	speech.visible = false
 	TextBox.queue_text("Winter, I...I don't understand what's going on.")
 	TextBox.queue_text("I think I'm getting snapshots...No, feelings? No.")
@@ -17,7 +19,7 @@ func _ready() -> void:
 	await TextBox.on_display_finished
 	speech.visible = true
 	TextBox.queue_text("It's alright. Yes, those are mine.")
-	TextBox.queue_text("Well, they're kind of mine,")
+	TextBox.queue_text("Well, they're sort of mine,")
 	TextBox.queue_text("But also kind of like reflections in a rippled lake.")
 	TextBox.queue_text("Even so, I wanted you to have them.")
 	TextBox.queue_text("And now that you do, do you feel any different?")
@@ -40,8 +42,8 @@ func _ready() -> void:
 	speech.visible = true
 	TextBox.hide()
 	TextBox.queue_text("Good.")
-	TextBox.queue_text("Try taking that hand")
-	TextBox.queue_text("And reach it out into the universe.")
+	TextBox.queue_text("Try to take that hand")
+	TextBox.queue_text("And reach it out.")
 	TextBox.queue_text("Another ghost might just grab on")
 	TextBox.queue_text("When it does, you'll probably feel a tug")
 	TextBox.show_queue()
@@ -87,9 +89,11 @@ func _ready() -> void:
 	TextBox.queue_text("You were my best friend.")
 	TextBox.display_text()
 	await TextBox.on_display_finished
+	timer.start()
+	await timer.timeout
 	Transition.transition()
 	await Transition.on_transition_finished
-	get_tree().change_scene_to_file("res://a_very_sad_dog.tscn")
+	get_tree().change_scene_to_file("res://third_game_scene.tscn")
 	pass # Replace with function body.
 
 
