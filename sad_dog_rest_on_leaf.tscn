@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf7psyjvy87pm"]
+
+[ext_resource type="Texture2D" uid="uid://dnflyy742c7qy" path="res://dog_and_leaf.png" id="1_wsqsl"]
+
+[sub_resource type="Animation" id="Animation_52xm8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(507, 342)]
+}
+
+[sub_resource type="Animation" id="Animation_c38c2"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.43333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(507, 342), Vector2(507, 350), Vector2(507, 330)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w1crm"]
+_data = {
+"RESET": SubResource("Animation_52xm8"),
+"new_animation": SubResource("Animation_c38c2")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1166.0
+offset_bottom = 686.0
+color = Color(0.914398, 0.851007, 0.90985, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 39.0
+offset_right = 1119.0
+offset_bottom = 640.0
+color = Color(0.950927, 0.788622, 0.867234, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1038.0
+offset_bottom = 579.0
+color = Color(0.77592, 0.500203, 0.584413, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(507, 342)
+scale = Vector2(4.60625, 4.85)
+texture = ExtResource("1_wsqsl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_w1crm")
+}
+autoplay = "new_animation"

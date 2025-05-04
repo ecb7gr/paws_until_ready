@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://beb6i3voetjr" path="res://Memory2.png" id="2_8eb6g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_32qqe"]
-radius = 15.5242
+radius = 20.0041
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_govvu")
@@ -17,6 +17,7 @@ texture = ExtResource("2_8eb6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9, -11)
+scale = Vector2(1.56, 1.68)
 shape = SubResource("CircleShape2D_32qqe")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cdcop32q27mih"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -24.0
+offset_right = 1247.0
+offset_bottom = 703.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 61.0
+offset_right = 996.0
+offset_bottom = 707.0
+theme_override_font_sizes/normal_font_size = 45
+text = "Professors,
+Thank you so much for a really amazing semester. I'll probably never finish this, and it's messy, I know. But I'm really proud of it. Thank you for that.
+Best,
+Virginia Bonnie"

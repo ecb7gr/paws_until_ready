@@ -6,9 +6,9 @@ extends Node2D
 @onready var timer2 = $Timer2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	speech.visible = false
 	timer.start()
 	await timer.timeout
-	speech.visible = false
 	TextBox.queue_text("Winter, I...I don't understand what's going on.")
 	TextBox.queue_text("I think I'm getting snapshots...No, feelings? No.")
 	TextBox.queue_text("Thoughts? I...")

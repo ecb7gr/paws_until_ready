@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ckb13c83ir0h1" path="res://ball_thing.png" id="2_utndx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ofdra"]
+radius = 6.01873
 
 [node name="Node2D" type="Area2D"]
 script = ExtResource("1_6rthf")
@@ -15,6 +16,7 @@ texture = ExtResource("2_utndx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
+scale = Vector2(3.99113, -3.92705)
 shape = SubResource("CircleShape2D_ofdra")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

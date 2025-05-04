@@ -58,6 +58,7 @@ func _ready() -> void:
 	TextBox.queue_text("WINTER!!!")
 	TextBox.show()
 	load_textbox()
+	await TextBox.on_display_finished
 	Transition.transition()
 	await Transition.on_transition_finished
 	get_tree().change_scene_to_file("res://cut_scene2.tscn")
@@ -150,7 +151,7 @@ func on_poem_pressed():
 	poemmemory.hide()
 	energy.show()
 	TextBox.queue_text("A poem?????")
-	TextBox.queue_text("Could this be my subconcious? My memories?")
+	TextBox.queue_text("Could this be my subconcious?")
 	TextBox.show()
 	load_textbox()
 	memory4.show()

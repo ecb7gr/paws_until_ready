@@ -1,10 +1,97 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccf0u2rys422s"]
+[gd_scene load_steps=20 format=3 uid="uid://ccf0u2rys422s"]
 
 [ext_resource type="PackedScene" uid="uid://birgplsretasp" path="res://test_game_base.tscn" id="1_kgdsb"]
 [ext_resource type="Script" path="res://third_game_scene.gd" id="1_km5o6"]
 [ext_resource type="PackedScene" uid="uid://d1xumg0b4ounb" path="res://ghost.tscn" id="2_2mjnf"]
 [ext_resource type="PackedScene" uid="uid://b6o05k2nltc0o" path="res://energy.tscn" id="3_yioic"]
 [ext_resource type="PackedScene" uid="uid://c27q7jncka35r" path="res://a_very_sad_dog.tscn" id="5_dbbcj"]
+[ext_resource type="FontFile" uid="uid://ckvb46xs6haql" path="res://Minecraft.ttf" id="5_e8uit"]
+[ext_resource type="PackedScene" uid="uid://cf7psyjvy87pm" path="res://sad_dog_rest_on_leaf.tscn" id="6_kx212"]
+[ext_resource type="PackedScene" uid="uid://bhkr3nugubwpg" path="res://leaf_bird_mem.tscn" id="7_2fp0y"]
+[ext_resource type="PackedScene" uid="uid://c2yeu3ov03ymb" path="res://sad_mem.tscn" id="8_0l5lf"]
+[ext_resource type="Texture2D" uid="uid://vdgj004h231f" path="res://New Piskel-1.png (2).png" id="9_eju8q"]
+
+[sub_resource type="Animation" id="Animation_u4hqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(845, 496)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_i6s24"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(845, 496), Vector2(841, 496), Vector2(845, 497), Vector2(845, 497), Vector2(848, 499), Vector2(840, 496), Vector2(845, 496)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.3, 0.4, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.229601, -0.146608, 0.341213, -0.221918, 0.46672, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_naxo5"]
+resource_name = "new_animation_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.366667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(845, 496), Vector2(845, 490), Vector2(845, 495), Vector2(845, 490), Vector2(845, 494)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnjpu"]
+_data = {
+"RESET": SubResource("Animation_u4hqb"),
+"new_animation": SubResource("Animation_i6s24"),
+"new_animation_2": SubResource("Animation_naxo5")
+}
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4y5qo"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1535"]
+radius = 7.0
 
 [sub_resource type="Animation" id="Animation_4482t"]
 length = 0.001
@@ -49,6 +136,17 @@ script = ExtResource("1_km5o6")
 [node name="TileMap" parent="." instance=ExtResource("1_kgdsb")]
 position = Vector2(1, 12)
 
+[node name="Node2D" parent="." instance=ExtResource("5_dbbcj")]
+position = Vector2(845, 496)
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+libraries = {
+"": SubResource("AnimationLibrary_dnjpu")
+}
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_2mjnf")]
 position = Vector2(292, 350)
 scale = Vector2(1.5, 1.5)
@@ -60,6 +158,86 @@ zoom = Vector2(4, 4)
 
 [node name="CanvasLayer" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_yioic")]
 
+[node name="Button" type="Button" parent="CharacterBody2D/Camera2D"]
+offset_left = -60.6667
+offset_top = -22.0
+offset_right = -19.6667
+offset_bottom = 8.99999
+scale = Vector2(0.535384, 0.458422)
+theme_override_fonts/font = ExtResource("5_e8uit")
+text = "play"
+
+[node name="Button2" type="Button" parent="CharacterBody2D/Camera2D"]
+offset_left = -60.6667
+offset_top = -4.66667
+offset_right = -21.6667
+offset_bottom = 26.3333
+scale = Vector2(0.551956, 0.465385)
+theme_override_fonts/font = ExtResource("5_e8uit")
+text = "rest"
+
+[node name="Node2D" parent="CharacterBody2D/Camera2D" instance=ExtResource("6_kx212")]
+position = Vector2(-98.6667, -60)
+scale = Vector2(0.17, 0.17)
+
+[node name="Button3" type="Button" parent="CharacterBody2D/Camera2D"]
+offset_left = -92.0
+offset_top = -37.0
+offset_right = 198.0
+offset_bottom = -4.0
+scale = Vector2(0.346658, 0.440127)
+theme_override_fonts/font = ExtResource("5_e8uit")
+text = "The dog invites you to see something"
+
+[node name="Button4" type="Button" parent="CharacterBody2D/Camera2D"]
+offset_left = -93.3333
+offset_top = -3.33333
+offset_right = 36.6667
+offset_bottom = 27.6667
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("5_e8uit")
+text = "Manifest \"Play\""
+
+[node name="Button5" type="Button" parent="CharacterBody2D/Camera2D"]
+offset_left = -95.3333
+offset_top = -4.66667
+offset_right = 43.6667
+offset_bottom = 19.3333
+scale = Vector2(0.4, 0.4)
+theme_override_fonts/font = ExtResource("5_e8uit")
+text = "The dog answers"
+
+[node name="Button6" type="Button" parent="CharacterBody2D/Camera2D"]
+offset_left = -86.6667
+offset_top = -22.6667
+offset_right = 113.333
+offset_bottom = 19.3333
+scale = Vector2(0.837688, 0.790042)
+theme_override_fonts/font = ExtResource("5_e8uit")
+text = "Find a friend for the dog"
+
+[node name="Node2D" parent="CharacterBody2D" instance=ExtResource("7_2fp0y")]
+position = Vector2(-97.3333, -54.6667)
+scale = Vector2(0.17, 0.17)
+
+[node name="Node2D2" parent="CharacterBody2D" instance=ExtResource("8_0l5lf")]
+position = Vector2(-99.3333, -58)
+scale = Vector2(0.2, 0.2)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(763, 351)
+scale = Vector2(3, 3)
+physics_material_override = SubResource("PhysicsMaterial_4y5qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_f1535")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(1, 0)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("9_eju8q")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(290, 349)
 zoom = Vector2(4, 4)
@@ -69,13 +247,12 @@ libraries = {
 "": SubResource("AnimationLibrary_r1cwv")
 }
 
-[node name="Node2D" parent="." instance=ExtResource("5_dbbcj")]
-position = Vector2(845, 496)
-scale = Vector2(2, 2)
-collision_layer = 2
-collision_mask = 2
-
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
 
 [connection signal="close_enough_to_dog" from="Node2D" to="." method="_on_node_2d_close_enough_to_dog"]
+[connection signal="pressed" from="CharacterBody2D/Camera2D/Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CharacterBody2D/Camera2D/Button2" to="." method="_on_rest_button_pressed"]
+[connection signal="pressed" from="CharacterBody2D/Camera2D/Button3" to="." method="_on_mind_button_1_pressed"]
+[connection signal="pressed" from="CharacterBody2D/Camera2D/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="CharacterBody2D/Camera2D/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="CharacterBody2D/Camera2D/Button6" to="." method="_on_button_6_pressed"]

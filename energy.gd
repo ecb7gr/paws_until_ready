@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 	pass
 func increment_energy_value():
 	energy_value = energy_value+1
-
+func decrement_energy_value():
+	energy_value = energy_value-1
 func reset_energy_value():
 	energy_value = 0

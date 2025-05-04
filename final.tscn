@@ -1,0 +1,242 @@
+[gd_scene load_steps=9 format=3 uid="uid://pm0mrgalhete"]
+
+[ext_resource type="Texture2D" uid="uid://ckb13c83ir0h1" path="res://ball_thing.png" id="1_8uror"]
+[ext_resource type="Script" path="res://final.gd" id="1_yajlh"]
+[ext_resource type="FontFile" uid="uid://ckvb46xs6haql" path="res://Minecraft.ttf" id="2_ca6rd"]
+
+[sub_resource type="Environment" id="Environment_vvu0f"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.96
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_hdr_threshold = 1.7
+glow_hdr_scale = 1.32
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yexpp"]
+light_mode = 1
+
+[sub_resource type="Animation" id="Animation_hu66u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17.0938, 17.2812)]
+}
+
+[sub_resource type="Animation" id="Animation_8l778"]
+resource_name = "new_animation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(10, 10), Vector2(12, 12), Vector2(10, 10), Vector2(12, 12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7joc"]
+_data = {
+"RESET": SubResource("Animation_hu66u"),
+"new_animation": SubResource("Animation_8l778")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_yajlh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vvu0f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1442.0
+offset_top = -588.0
+offset_right = 3134.0
+offset_bottom = 2235.0
+tooltip_text = "BOLD"
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1.4, 1, 0.3, 1)
+material = SubResource("CanvasItemMaterial_yexpp")
+position = Vector2(564, 547)
+scale = Vector2(17.0938, 17.2812)
+texture = ExtResource("1_8uror")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_v7joc")
+}
+autoplay = "new_animation"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(572, 333)
+zoom = Vector2(0.8, 0.8)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(0.99, 0.99, 0.99, 1)
+offset_left = 24.0
+offset_top = 35.0
+offset_right = 1125.0
+offset_bottom = 457.0
+theme_override_fonts/normal_font = ExtResource("2_ca6rd")
+theme_override_font_sizes/normal_font_size = 100
+text = "We're looking for a ghost who is..."
+
+[node name="Button" type="Button" parent="RichTextLabel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 244.0
+offset_right = 252.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 60
+text = "Gruff"
+
+[node name="Button2" type="Button" parent="RichTextLabel"]
+layout_mode = 0
+offset_left = 844.0
+offset_top = 239.0
+offset_right = 1078.0
+offset_bottom = 386.0
+theme_override_font_sizes/font_size = 60
+text = "Gentle"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_fonts/normal_font = ExtResource("2_ca6rd")
+theme_override_font_sizes/normal_font_size = 100
+text = "The ghost must be..."
+
+[node name="Button" type="Button" parent="RichTextLabel2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 330.0
+offset_right = 371.0
+offset_bottom = 455.0
+theme_override_fonts/font = ExtResource("2_ca6rd")
+theme_override_font_sizes/font_size = 55
+text = "Independent"
+
+[node name="Button2" type="Button" parent="RichTextLabel2"]
+layout_mode = 0
+offset_left = 748.0
+offset_top = 334.0
+offset_right = 1114.0
+offset_bottom = 459.0
+theme_override_fonts/font = ExtResource("2_ca6rd")
+theme_override_font_sizes/font_size = 55
+text = "Collaborative"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_fonts/normal_font = ExtResource("2_ca6rd")
+theme_override_font_sizes/normal_font_size = 100
+text = "The ghost should want to spend time..."
+
+[node name="Button" type="Button" parent="RichTextLabel3"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 330.0
+offset_right = 371.0
+offset_bottom = 455.0
+theme_override_fonts/font = ExtResource("2_ca6rd")
+theme_override_font_sizes/font_size = 55
+text = "In nature"
+
+[node name="Button2" type="Button" parent="RichTextLabel3"]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 317.0
+offset_right = 1170.0
+offset_bottom = 442.0
+theme_override_fonts/font = ExtResource("2_ca6rd")
+theme_override_font_sizes/font_size = 55
+text = "In manmade spaces"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_fonts/normal_font = ExtResource("2_ca6rd")
+theme_override_font_sizes/normal_font_size = 100
+text = "The ghost must want a friend who is...."
+
+[node name="Button" type="Button" parent="RichTextLabel4"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 330.0
+offset_right = 371.0
+offset_bottom = 455.0
+theme_override_fonts/font = ExtResource("2_ca6rd")
+theme_override_font_sizes/font_size = 55
+text = "Devoted"
+
+[node name="Button2" type="Button" parent="RichTextLabel4"]
+layout_mode = 0
+offset_left = 748.0
+offset_top = 334.0
+offset_right = 1114.0
+offset_bottom = 459.0
+theme_override_fonts/font = ExtResource("2_ca6rd")
+theme_override_font_sizes/font_size = 55
+text = "Fearless"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_fonts/normal_font = ExtResource("2_ca6rd")
+theme_override_font_sizes/normal_font_size = 100
+text = "The ghost must offer love..."
+
+[node name="Button" type="Button" parent="RichTextLabel5"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 330.0
+offset_right = 371.0
+offset_bottom = 455.0
+theme_override_fonts/font = ExtResource("2_ca6rd")
+theme_override_font_sizes/font_size = 55
+text = "Unconditionally"
+
+[node name="Button2" type="Button" parent="RichTextLabel5"]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 319.0
+offset_right = 1133.0
+offset_bottom = 444.0
+theme_override_fonts/font = ExtResource("2_ca6rd")
+theme_override_font_sizes/font_size = 55
+text = "When earned"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+offset_left = 153.0
+offset_top = -41.0
+offset_right = 977.0
+offset_bottom = 646.0
+theme_override_fonts/normal_font = ExtResource("2_ca6rd")
+theme_override_font_sizes/normal_font_size = 55
+
+[connection signal="pressed" from="RichTextLabel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="RichTextLabel/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="RichTextLabel2/Button" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="RichTextLabel2/Button2" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="RichTextLabel3/Button" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="RichTextLabel3/Button2" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="RichTextLabel4/Button" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="RichTextLabel4/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="RichTextLabel5/Button" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="RichTextLabel5/Button2" to="." method="_on_button_pressed"]

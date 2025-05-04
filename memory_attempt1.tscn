@@ -10,3 +10,4 @@ position = Vector2(539, 307)
 texture = ExtResource("1_p50rd")
 
 [node name="memory_shape" parent="." instance=ExtResource("2_74xw5")]
+scale = Vector2(2.44, 2.56)
